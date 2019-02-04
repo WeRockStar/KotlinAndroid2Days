@@ -5,15 +5,22 @@ import retrofit2.Retrofit
 
 class HttpModule {
 
-    fun createOkHttp(): OkHttpClient {
+    private fun createOkHttp(): OkHttpClient {
         return OkHttpClient.Builder()
             .build()
     }
 
-    fun createRetrofit(): Retrofit {
+    private fun createRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
+            .client(createOkHttp())
             .build()
     }
+
+    fun createAPI(): GithubAPI {
+        val retrofit = createRetrofit()
+        return retrofit.create(GithubAPI::class.java)
+    }
+
 
 }
