@@ -1,6 +1,8 @@
 package com.werockstar.kotlin2days
 
-interface Scheduler {
+import io.reactivex.Scheduler
+
+interface IScheduler {
     fun io(): Scheduler
     fun ui(): Scheduler
 }

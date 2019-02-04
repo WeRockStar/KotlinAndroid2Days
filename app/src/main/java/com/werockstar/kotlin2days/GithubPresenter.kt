@@ -1,12 +1,6 @@
 package com.werockstar.kotlin2days
 
-import android.util.Log
-import android.widget.Toast
-import io.reactivex.Scheduler
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-
-class GithubPresenter constructor(private val api: GithubAPI) {
+class GithubPresenter constructor(private val api: GithubAPI, private val scheduler: IScheduler) {
 
     private lateinit var view: GithubView
 
@@ -15,16 +9,15 @@ class GithubPresenter constructor(private val api: GithubAPI) {
     }
 
     fun getUser(userId: String) {
+        view.showLoading()
         api.user(userId)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(scheduler.io())
+            .observeOn(scheduler.ui())
+            .doOnTerminate { view.dismissLoading() }
             .subscribe({
                 view.onUserResult(it)
             }, {
-                // TODO: onError
-            }, {
-                // TODO: onComplete
-
+                view.onUserError(it.message)
             })
     }
 }

@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity(), GithubView {
         setContentView(R.layout.activity_main)
 
         val api = HttpModule().createAPI()
-        presenter = GithubPresenter(api)
+        presenter = GithubPresenter(api, AppScheduler())
         presenter.attachView(this)
 
         btnRequest.setOnClickListener { presenter.getUser("werockstar") }
@@ -21,5 +21,17 @@ class MainActivity : AppCompatActivity(), GithubView {
 
     override fun onUserResult(result: GithubResponse) {
         tvName.text = result.user
+    }
+
+    override fun showLoading() {
+
+    }
+
+    override fun onUserError(message: String?) {
+
+    }
+
+    override fun dismissLoading() {
+
     }
 }
