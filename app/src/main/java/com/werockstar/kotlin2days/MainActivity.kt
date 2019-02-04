@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), GithubView {
 
     private lateinit var presenter: GithubPresenter
 
@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val api = HttpModule().createAPI()
         presenter = GithubPresenter(api)
+        presenter.attachView(this)
 
         btnRequest.setOnClickListener {
             presenter.getUser("werockstar")
