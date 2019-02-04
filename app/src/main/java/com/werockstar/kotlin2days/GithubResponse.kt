@@ -1,3 +1,5 @@
 package com.werockstar.kotlin2days
 
-class GithubResponse(val login: String)
+import com.google.gson.annotations.SerializedName
+
+class GithubResponse(@SerializedName("login") val user: String)

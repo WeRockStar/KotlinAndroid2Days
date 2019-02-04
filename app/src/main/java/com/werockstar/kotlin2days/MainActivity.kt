@@ -16,8 +16,10 @@ class MainActivity : AppCompatActivity(), GithubView {
         presenter = GithubPresenter(api)
         presenter.attachView(this)
 
-        btnRequest.setOnClickListener {
-            presenter.getUser("werockstar")
-        }
+        btnRequest.setOnClickListener { presenter.getUser("werockstar") }
+    }
+
+    override fun onUserResult(result: GithubResponse) {
+        tvName.text = result.user
     }
 }

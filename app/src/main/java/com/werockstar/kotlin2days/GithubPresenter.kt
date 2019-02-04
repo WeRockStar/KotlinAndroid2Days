@@ -19,11 +19,9 @@ class GithubPresenter constructor(private val api: GithubAPI) {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                // TODO: onNext
-
+                view.onUserResult(it)
             }, {
                 // TODO: onError
-
             }, {
                 // TODO: onComplete
 
