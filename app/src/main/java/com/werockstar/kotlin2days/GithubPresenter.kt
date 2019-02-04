@@ -1,8 +1,12 @@
 package com.werockstar.kotlin2days
 
+import io.reactivex.disposables.CompositeDisposable
+
 class GithubPresenter constructor(private val api: GithubAPI, private val scheduler: IScheduler) {
 
     private lateinit var view: GithubView
+
+    private val disposable = CompositeDisposable()
 
     fun attachView(view: GithubView) {
         this.view = view
@@ -10,7 +14,8 @@ class GithubPresenter constructor(private val api: GithubAPI, private val schedu
 
     fun getUser(userId: String) {
         view.showLoading()
-        api.user(userId)
+        
+        disposable.add(api.user(userId)
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.ui())
             .doOnTerminate { view.dismissLoading() }
@@ -19,5 +24,10 @@ class GithubPresenter constructor(private val api: GithubAPI, private val schedu
             }, {
                 view.onUserError(it.message)
             })
+        )
+    }
+
+    fun onDestroy() {
+        disposable.clear()
     }
 }

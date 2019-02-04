@@ -34,4 +34,10 @@ class MainActivity : AppCompatActivity(), GithubView {
     override fun dismissLoading() {
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        presenter.onDestroy()
+    }
 }
