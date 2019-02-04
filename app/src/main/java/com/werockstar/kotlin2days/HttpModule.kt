@@ -2,6 +2,8 @@ package com.werockstar.kotlin2days
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 class HttpModule {
 
@@ -14,6 +16,8 @@ class HttpModule {
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .client(createOkHttp())
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
 
@@ -21,6 +25,5 @@ class HttpModule {
         val retrofit = createRetrofit()
         return retrofit.create(GithubAPI::class.java)
     }
-
 
 }
