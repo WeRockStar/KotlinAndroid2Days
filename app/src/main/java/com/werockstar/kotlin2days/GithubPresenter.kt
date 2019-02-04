@@ -6,7 +6,7 @@ class GithubPresenter constructor(private val api: GithubAPI, private val schedu
 
     private lateinit var view: GithubView
 
-    private val disposable = CompositeDisposable()
+    private val disposable by lazy { CompositeDisposable() }
 
     fun attachView(view: GithubView) {
         this.view = view
@@ -14,7 +14,6 @@ class GithubPresenter constructor(private val api: GithubAPI, private val schedu
 
     fun getUser(userId: String) {
         view.showLoading()
-        
         disposable.add(api.user(userId)
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.ui())
