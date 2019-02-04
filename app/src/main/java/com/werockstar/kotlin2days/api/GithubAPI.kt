@@ -1,6 +1,6 @@
 package com.werockstar.kotlin2days.api
 
-import com.werockstar.kotlin2days.GithubResponse
+import com.werockstar.kotlin2days.ui.GithubResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

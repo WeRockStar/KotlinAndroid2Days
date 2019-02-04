@@ -1,8 +1,10 @@
-package com.werockstar.kotlin2days
+package com.werockstar.kotlin2days.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.werockstar.kotlin2days.BuildConfig
+import com.werockstar.kotlin2days.R
 import com.werockstar.kotlin2days.api.HttpModule
 import com.werockstar.kotlin2days.scheduler.AppScheduler
 import kotlinx.android.synthetic.main.activity_main.*
@@ -43,7 +45,11 @@ class MainActivity : AppCompatActivity(), GithubView {
     data class Person(val name: String, val age: Int)
 
     override fun showLoading() {
-        val users = listOf(Person("WeRockStar", 25), Person("Aou", 20), Person("Title", 22))
+        val users = listOf(
+            Person("WeRockStar", 25),
+            Person("Aou", 20),
+            Person("Title", 22)
+        )
 
         val list = users.filter { it.age >= 20 }
             .filter { it.name.length > 3 }

@@ -1,4 +1,4 @@
-package com.werockstar.kotlin2days
+package com.werockstar.kotlin2days.ui
 
 import com.google.gson.annotations.SerializedName
 

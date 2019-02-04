@@ -3,6 +3,9 @@ package com.werockstar.kotlin2days
 import com.nhaarman.mockitokotlin2.*
 import com.werockstar.kotlin2days.api.GithubAPI
 import com.werockstar.kotlin2days.scheduler.IScheduler
+import com.werockstar.kotlin2days.ui.GithubPresenter
+import com.werockstar.kotlin2days.ui.GithubResponse
+import com.werockstar.kotlin2days.ui.GithubView
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers

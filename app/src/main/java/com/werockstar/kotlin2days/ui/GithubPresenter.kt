@@ -1,4 +1,4 @@
-package com.werockstar.kotlin2days
+package com.werockstar.kotlin2days.ui
 
 import com.werockstar.kotlin2days.api.GithubAPI
 import com.werockstar.kotlin2days.scheduler.IScheduler
