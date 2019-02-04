@@ -22,7 +22,7 @@ android {
 
 ext {
     supportVersion = "28.0.0"
-    daggerVersion = "2.13"
+    daggerVersion = "2.20"
     retrofitVersion = "2.2.0"
     mockitoVersion = "1.10.19"
     okHttpVersion = "3.7.0"
