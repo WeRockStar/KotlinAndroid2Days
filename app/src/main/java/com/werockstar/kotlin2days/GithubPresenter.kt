@@ -1,5 +1,7 @@
 package com.werockstar.kotlin2days
 
+import com.werockstar.kotlin2days.api.GithubAPI
+import com.werockstar.kotlin2days.scheduler.IScheduler
 import io.reactivex.disposables.CompositeDisposable
 
 class GithubPresenter constructor(private val api: GithubAPI, private val scheduler: IScheduler) {

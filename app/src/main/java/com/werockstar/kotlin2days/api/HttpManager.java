@@ -1,4 +1,4 @@
-package com.werockstar.kotlin2days;
+package com.werockstar.kotlin2days.api;
 
 import android.support.annotation.NonNull;
 import okhttp3.OkHttpClient;

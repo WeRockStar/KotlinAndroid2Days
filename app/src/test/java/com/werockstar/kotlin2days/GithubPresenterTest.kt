@@ -1,13 +1,14 @@
 package com.werockstar.kotlin2days
 
 import com.nhaarman.mockitokotlin2.*
+import com.werockstar.kotlin2days.api.GithubAPI
+import com.werockstar.kotlin2days.scheduler.IScheduler
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 class GithubPresenterTest {

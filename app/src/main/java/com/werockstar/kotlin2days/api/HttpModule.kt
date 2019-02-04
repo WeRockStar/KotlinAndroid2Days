@@ -1,4 +1,4 @@
-package com.werockstar.kotlin2days
+package com.werockstar.kotlin2days.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

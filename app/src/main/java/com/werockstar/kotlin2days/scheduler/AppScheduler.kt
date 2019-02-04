@@ -1,4 +1,4 @@
-package com.werockstar.kotlin2days
+package com.werockstar.kotlin2days.scheduler
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
