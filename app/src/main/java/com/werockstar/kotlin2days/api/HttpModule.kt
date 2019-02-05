@@ -23,8 +23,7 @@ class HttpModule {
 
     fun createAPI(): GithubAPI {
         val retrofit: Retrofit = createRetrofit()
-        val api: GithubAPI = retrofit.create(GithubAPI::class.java)
-        return api
+        return retrofit.create(GithubAPI::class.java)
     }
 
 }
