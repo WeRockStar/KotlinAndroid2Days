@@ -13,6 +13,7 @@ public class HttpManager {
                 .build();
     }
 
+    @NonNull
     public Retrofit createRetrofit(@NonNull OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
