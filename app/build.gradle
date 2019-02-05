@@ -66,6 +66,7 @@ dependencies {
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
 
     androidTestImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
     compile('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
         transitive = true;

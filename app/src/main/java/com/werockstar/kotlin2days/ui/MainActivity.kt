@@ -17,13 +17,12 @@ class MainActivity : AppCompatActivity(), GithubView {
 
     private lateinit var presenter: GithubPresenter
 
-    val api = HttpModule().createAPI()
-
-    private val factory = GithubFactory(api, AppScheduler())
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val api by lazy { HttpModule().createAPI(application) }
+        val factory = GithubFactory(api, AppScheduler())
 
         val viewModel = ViewModelProviders.of(this, factory).get(GithubViewModel::class.java)
         viewModel.liveData.observe(this, Observer {
