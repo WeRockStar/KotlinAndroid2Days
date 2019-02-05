@@ -62,7 +62,7 @@ class GithubPresenterTest {
     @Test
     fun `request user error should call onUnAuthorize`() {
         val userId = "WeRockStar"
-        val throwable = Throwable("Error!!")
+        val throwable = Throwable("401")
         val response = GithubResponse(userId)
         whenever(api.user(userId)).doReturn(Observable.error(throwable))
 
