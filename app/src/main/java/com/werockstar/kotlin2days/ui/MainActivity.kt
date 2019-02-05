@@ -5,11 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.werockstar.kotlin2days.BuildConfig
 import com.werockstar.kotlin2days.R
-import com.werockstar.kotlin2days.api.HttpManager
 import com.werockstar.kotlin2days.api.HttpModule
 import com.werockstar.kotlin2days.scheduler.AppScheduler
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity(), GithubView {
 
