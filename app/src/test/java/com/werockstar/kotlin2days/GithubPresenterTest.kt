@@ -13,6 +13,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import retrofit2.HttpException
 
 class GithubPresenterTest {
 
@@ -56,6 +57,19 @@ class GithubPresenterTest {
 
         verify(view, never()).onUserResult(response)
         verify(view, times(1)).onUserError(throwable.message)
+    }
+
+    @Test
+    fun `request user error should call onUnAuthorize`() {
+        val userId = "WeRockStar"
+        val throwable = Throwable("Error!!")
+        val response = GithubResponse(userId)
+        whenever(api.user(userId)).doReturn(Observable.error(throwable))
+
+        presenter.getUser(userId)
+
+        verify(view, never()).onUserResult(response)
+        verify(view, times(1)).onUnAuthorize()
     }
 
     class TestScheduler : IScheduler {

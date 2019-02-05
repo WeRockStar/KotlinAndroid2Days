@@ -3,6 +3,7 @@ package com.werockstar.kotlin2days.ui
 import com.werockstar.kotlin2days.api.GithubAPI
 import com.werockstar.kotlin2days.scheduler.IScheduler
 import io.reactivex.disposables.CompositeDisposable
+import retrofit2.HttpException
 
 class GithubPresenter constructor(private val api: GithubAPI, private val scheduler: IScheduler) {
 
@@ -23,7 +24,11 @@ class GithubPresenter constructor(private val api: GithubAPI, private val schedu
             .subscribe({
                 view.onUserResult(it)
             }, {
-                view.onUserError(it.message)
+                if (it.message == "401") {
+                    view.onUnAuthorize()
+                } else {
+                    view.onUserError(it.message)
+                }
             })
         )
     }

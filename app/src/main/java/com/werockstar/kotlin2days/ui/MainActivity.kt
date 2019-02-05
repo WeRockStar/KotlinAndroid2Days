@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity(), GithubView {
         tvName?.text = result.user
     }
 
+    override fun onUnAuthorize() {
+
+    }
+
     data class Person(val name: String, val age: Int)
 
     override fun showLoading() {
