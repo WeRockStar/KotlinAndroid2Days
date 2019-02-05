@@ -3,7 +3,6 @@ package com.werockstar.kotlin2days.ui
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.werockstar.kotlin2days.BuildConfig

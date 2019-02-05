@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HttpModule {
 
-    private fun createOkHttp(): OkHttpClient {
+    fun createOkHttp(): OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
