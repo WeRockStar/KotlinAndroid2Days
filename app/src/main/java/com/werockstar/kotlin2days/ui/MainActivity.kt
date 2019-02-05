@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity(), GithubView {
 
         btnRequest.setOnClickListener { presenter.getUser("werockstar") }
 
-        doOnDebug({
+        doOnDebug {
             Log.d("SQL", "SELECT *FROM USER_PASSWORD")
-        }, 5)
+        }
     }
 
-    private fun doOnDebug(func: () -> Unit, number: Int) {
+    private fun doOnDebug(func: () -> Unit) {
         println("Start")
 
         if (BuildConfig.DEBUG) {
